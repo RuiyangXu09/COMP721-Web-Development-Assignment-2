@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS cabs
+	(
+		Reference_Number INT(30) PRIMARY KEY NOT NULL,
+                	Customer_Name VARCHAR(30) NOT NULL,
+		            Phone_Number INT(30) NOT NULL,
+                	Unit_Number VARCHAR(30),
+                	Street_Number VARCHAR(30) NOT NULL,
+                	Street_Name VARCHAR(30) NOT NULL,
+                	Suburb VARCHAR(30),
+                	Destination_Suburb VARCHAR(30),
+                	Pick_Up_Date DATE NOT NULL,
+                	Pick_up_Time TIME NOT NULL,
+		            Status VARCHAR(30) NOT NULL
+	)
+
+INSERT INTO cabs(Reference_Number, Customer_Name, Phone_Number, Unit_Number, Street_Number, Street_Name, Suburb, Destination_Suburb, Pick_Up_Date, Pick_up_Time, Status)
+VALUES ('$reference_number', '$customer_name', '$phone_number', '$unit_number', '$street_number', '$street_name', '$suburb', '$destination_suburb', '$pickup_date', '$pickup_time', 'Unassigned')
+
+SELECT * FROM cabs WHERE Reference_Number = '$bookingNumber'
+
+UPDATE cabs SET Status = 'Assigned' WHERE Reference_Number = '$bookingNumber'
+
+SELECT * FROM cabs WHERE to_days(Pick_Up_Date) = to_days(now()) AND Pick_up_Time <= NOW() + INTERVAL 2 HOUR AND Pick_up_Time >= NOW() AND Status = 'Unassigned'
+
+SELECT * FROM cabs WHERE to_days(Pick_Up_Date) = to_days(now()) AND Pick_up_Time <= DATE_ADD(NOW(), INTERVAL 2 HOUR) AND Status = 'Unassigned'

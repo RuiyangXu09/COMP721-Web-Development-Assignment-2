@@ -1,0 +1,130 @@
+<!--
+this file is showing the frontend page admin on the client side.
+Author: RuiyangXu 18017865
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cabs Administer System</title>
+    <script type="text/javascript" src="xhr.js"></script>
+    <script type="text/javascript" src="admin.js"></script>
+    <!-- Css part-->
+    <style>
+        .body{
+            background-image: url("images/search.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+        }
+        form{
+            text-align: center;
+        }
+        h1{
+            color: goldenrod;
+            font-family: "Verdana", Geneva, sans-serif;
+            font-size: 50px;
+        }
+        p{
+            color: goldenrod;
+            font-family: "Verdana", Geneva, sans-serif;
+            font-size: 20px;
+        }
+        table{
+            border-collapse: collapse;
+            margin: auto;
+            font-size: 15px;
+            height: 200px;
+        }
+        table td{
+            color: black;
+            font-size: 15px;
+            font-family: "Verdana", Geneva, sans-serif;
+            border: 2px solid black;
+        }
+        table th{
+            color: black;
+            font-size: 15px;
+            font-family: "Verdana", Geneva, sans-serif;
+            border: 2px solid black;
+        }
+        #targetDiv div{
+            color: black;
+            font-family: "Verdana", Geneva, sans-serif;
+            font-size: 15px;
+        }
+        a{
+            color: goldenrod;
+            font-family: "Verdana", Geneva, sans-serif;
+            font-size: 18px;
+        }
+        .button{
+            width: 200px;/*设置button宽度*/
+            height: 30px;/*设置button高度*/
+            color:black;/*字体颜色*/
+            background-color:antiquewhite;/*按钮背景颜色*/
+            border-radius: 3px;/*按钮圆滑*/
+            border-width: 0;/*取消按钮边框*/
+            outline: none;/*取消轮廓*/
+            font-family: "Verdana", Geneva, sans-serif;/*字体设置*/
+            font-size: 15px;/*字体大小*/
+            text-align: center;/*字体居中*/
+            cursor: pointer;/*设置鼠标箭头手势*/
+        }
+        button:hover{/*鼠标移动时颜色变化*/
+            background-color: goldenrod;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: goldenrod;
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-family: "Verdana", Geneva, sans-serif;
+        }
+        li a:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body class="body">
+<div>
+    <ul>
+        <li><a href="Home.html">Return To Home</a></li>
+        <li><a href="booking.html">Booking A Taxi</a></li>
+    </ul>
+</div>
+<h1>Cabs Taxi Order Searching System</h1>
+<form>
+    <p style="text-align: center">
+        <span>Reference Number: </span>
+        <label>
+            <input type="text" name="bsearch" placeholder="BRN00001">
+        </label>
+        <button  type="button" name="sbutton" onclick="SearchData('search.php', 'targetDiv', bsearch.value)" class="button">
+            Search
+        </button>
+    </p>
+    <br>
+    <div id="targetDiv">
+        <p style="text-align: center">
+            Booking Details...
+        </p>
+    </div>
+    <br>
+    <button type='button' onclick="assignOrder('assignOrder.php', 'targetDiv', 'assign', bsearch.value)" class="button">
+        Assign
+    </button>
+</form>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!--
+this file is showing the frontend page booking on the client side.
+Author: RuiyangXu 18017865
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cabs Taxi Booking System</title>
+    <script type="text/javascript" src="xhr.js"></script>
+    <script type="text/javascript" src="booking.js"></script>
+    <!-- Css part-->
+    <style>
+        body{
+            background-image: url("images/booking.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+        }
+        form{
+            text-align: -webkit-center;
+        }
+        h1{
+            color: goldenrod;
+            font-family: "Verdana", Geneva, sans-serif;
+            font-size: 50px;
+        }
+        p{
+            color: black;
+            font-family: "Verdana", Geneva, sans-serif;
+            font-size: 15px;
+        }
+        span{
+            display: inline-block;width: 200px;text-align: left;
+        }
+        #targetDiv div{
+            color: goldenrod;
+            font-family: "Verdana", Geneva, sans-serif;
+            font-size: 15px;
+        }
+        a{
+            color: goldenrod;
+            font-family: "Verdana", Geneva, sans-serif;
+            font-size: 18px;
+        }
+        .button{
+            width: 200px;/*设置button宽度*/
+            height: 30px;/*设置button高度*/
+            color:black;/*字体颜色*/
+            background-color:antiquewhite;/*按钮背景颜色*/
+            border-radius: 3px;/*按钮圆滑*/
+            border-width: 0;/*取消按钮边框*/
+            outline: none;/*取消轮廓*/
+            font-family: "Verdana", Geneva, sans-serif;/*字体设置*/
+            font-size: 15px;/*字体大小*/
+            text-align: center;/*字体居中*/
+            cursor: pointer;/*设置鼠标箭头手势*/
+        }
+        button:hover{/*鼠标移动时颜色变化*/
+            background-color: goldenrod;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: goldenrod;
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-family: "Verdana", Geneva, sans-serif;
+        }
+        li a:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li><a href="Home.html">Return To Home</a></li>
+        <li><a href="admin.html">Manage Your Order</a></li>
+    </ul>
+</div>
+
+<div>
+    <form>
+        <div>
+            <h1>Cabs Booking System</h1>
+        </div>
+        <div>
+            <p>
+                <span>Customer name: </span>
+                <label>
+                    <input type="text" name="cname" placeholder="Name" required="required">
+                </label>
+            </p>
+        </div>
+
+        <div>
+            <p>
+                <span>Phone Number: </span>
+                <label>
+                    <input type="text" name="phone" placeholder="Phone Number">
+                </label>
+            </p>
+        </div>
+
+        <div>
+            <p>
+                <span>Unit Number(Opt): </span>
+                <label>
+                    <input type="text" name="unumber" placeholder="Unit Number">
+                </label>
+            </p>
+        </div>
+
+        <div>
+            <p>
+                <span>Street Number: </span>
+                <label>
+                    <input type="text" name="snumber" placeholder="Street number">
+                </label>
+            </p>
+        </div>
+
+        <div>
+            <p>
+                <span>Street Name: </span>
+                <label>
+                    <input type="text" name="stname" placeholder="Street name">
+                </label>
+            </p>
+        </div>
+
+        <div>
+            <p>
+                <span>Suburb(Opt): </span>
+                <label>
+                    <input type="text" name="sbname" placeholder="Suburb">
+                </label>
+            </p>
+        </div>
+
+        <div>
+            <p>
+                <span>Destination Suburb(Opt): </span>
+                <label>
+                    <input type="text" name="dsbname" placeholder="Destination Suburb">
+                </label>
+            </p>
+        </div>
+
+        <div>
+            <p>
+                <span>Pickup Date: </span>
+                <label>
+                    <input type="date" name="date">
+                </label>
+            </p>
+        </div>
+
+        <div>
+            <p>
+                <span>Pick-up Time: </span>
+                <label>
+                    <input type="time" name="time">
+                </label>
+            </p>
+        </div>
+
+        <div>
+            <button type="button" name="submit" onclick="getBookingData('booking.php', 'targetDiv',
+                            cname.value, phone.value, unumber.value, snumber.value, stname.value, sbname.value, dsbname.value, date.value, time.value)" class="button">Submit</button>
+            <button type="reset" name="reset" class="button">Reset</button>
+        </div>
+
+        <br>
+
+        <div id="targetDiv">
+            <h2>
+                Booking Details Will Show Here
+            </h2>
+        </div>
+    </form>
+</div>
+</body>
+</html>
